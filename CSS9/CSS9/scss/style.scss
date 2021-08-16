@@ -1,0 +1,52 @@
+//Файл обнуляющих стилей
+@import "_nullstyle";
+//Переменные
+$fz: 80px;
+$color_1:red;
+$color_2: rgb(70, 227, 233);
+//Шаблоны
+.tplborder{
+    border-bottom: 5px dashed red;
+}
+
+@mixin fontz($f, $c) {
+    font-size: $f;
+    color: $c;
+} 
+
+.block{
+    width: 300/960*100%;
+    background: rgb(143, 101, 101);
+    padding: 5px;
+    letter-spacing: 5px;
+    font-size: $fz;
+    >p{
+        color: $color_1;
+    }
+    span{
+        color: $color_2;
+    }
+    .block__text{
+        font-size: $fz;
+    }
+    &.block--big{
+        font-size: $fz;
+    }
+}
+.link{
+    text-decoration: underline;
+    color: blue;
+    font-size: $fz;
+    .block &{
+        font-size: $fz;
+    }
+    &:hover{
+        color: $color_1;
+    }
+    @extend .tplborder;
+}
+.link-2{
+    @include fontz(150px, green);
+    @extend .tplborder;
+
+}
